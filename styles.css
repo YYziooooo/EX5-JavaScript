@@ -1,0 +1,289 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    font-family: sans-serif;
+    background: url('./assets/bg-3.png') no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    color: white;
+    overflow-x: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+.carousel {
+    position: relative;
+    height: 80vh;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease;
+    height: 100%;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.caption {
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 400px;
+    z-index: 10;
+}
+
+.caption h2 {
+    color: rgb(129, 217, 129);
+    font-size: 26px;
+    margin-bottom: 5px;
+}
+
+.caption p {
+    color: rgb(120, 178, 212);
+    font-size: 12px;
+}
+
+.trailer {
+    position: absolute;
+    bottom: 30px;
+    right: 50px;
+    width: 250px;
+    height: 140px;
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+    z-index: 5;
+}
+
+.trailer:hover {
+    transform: scale(1.3);
+}
+
+#prev, #next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 20;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+#prev:hover, #next:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+#prev {
+    left: 10px;
+}
+
+#next {
+    right: 10px;
+}
+
+#mainNav {
+    position: sticky;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 5px;
+    top: 0;
+    z-index: 30;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+    list-style: none;
+    color: rgb(157, 193, 157);
+}
+
+.menu-icon {
+    display: none;
+    width: 30px;
+    cursor: pointer;
+}
+
+#navLinks {
+    display: flex;
+    list-style: none;
+    gap: 150px;
+}
+
+.nav-link {
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: color 0.3s;
+    text-align: center;
+}
+
+.nav-link:hover {
+    color: #ff9800;
+}
+
+#registration {
+    background: url('./assets/bg-7.png') no-repeat center center;
+    background-size: cover;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 20px;
+    flex-grow: 1;
+    position: relative;
+    z-index: 1;
+}
+
+#registration::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(36, 36, 95, 0.7);
+    border-radius: 10px;
+    z-index: -1;
+}
+
+#registration form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#registration h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #f0efed;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+.radio-group {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(253, 252, 252, 0.726);
+    color: rgb(8, 7, 7);
+}
+
+.form-group input[type="radio"] {
+    width: auto;
+    margin-right: 5px;
+}
+
+.form-group .error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+
+.submit-btn {
+    background: #47d1fc;
+    color: rgb(16, 15, 15);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 30%;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background: #45a049;
+}
+
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    #navLinks {
+        display: none;
+        flex-direction: column;
+        align-items: center; 
+        text-align: center;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.9);
+        padding: 20px;
+        gap: 10px;
+    }
+
+    #navLinks.show {
+        display: flex;
+    }
+    
+    #mainNav {
+        position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: #111;
+        position: relative; 
+    }
+    
+    .trailer {
+        width: 150px;
+        height: 90px;
+    }
+
+    .caption {
+        width: 80%;
+        font-size: 14px;
+    }
+}
